@@ -1,8 +1,3 @@
-asu_isearch 7.x-1.8.12
-----------------------
-- Added affil_hide, affil_weight, Google scholar, student info, and executive courses fields to the profile
-- Fixed dept file caching fallback for migrations
-
 asu_isearch 7.x-1.8.11
 ----------------------
 - Improved Solr profile checking to avoid unnecessary unpublishing, and improved logging information

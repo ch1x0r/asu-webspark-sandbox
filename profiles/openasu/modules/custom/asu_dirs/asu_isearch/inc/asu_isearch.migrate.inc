@@ -204,7 +204,7 @@ function _asu_isearch_cache_dept_feed($build_source = FALSE, $limit = ASU_ISEARC
       return FALSE;
     }
 
-    $data = _asu_isearch_cache_dept($source_urls[$key], $key);
+    $data = _asu_isearch_cache_dept($source_urls[$key]);
 
     //build the source master
     if ($build_source) {
@@ -258,10 +258,9 @@ function _asu_isearch_build_migrate_master($sources) {
  * Cache a single department, and return the decoded data
  *
  * @param $url - the URL of the dept endpoint to cache
- * @param $dept_nid - the department node id from iSearch
  * @return mixed - a PHP array of data which was cached
  */
-function _asu_isearch_cache_dept($url, $dept_nid) {
+function _asu_isearch_cache_dept($url) {
 
   // set timeout of request to 60 seconds
   $options = array(
@@ -271,6 +270,7 @@ function _asu_isearch_cache_dept($url, $dept_nid) {
   // add the base_url for tracking of departments in Splunk
   global $base_url;
   $url .= '?dept=' . $base_url;
+
 
   $decoded = NULL;
   $data = NULL;
@@ -282,7 +282,10 @@ function _asu_isearch_cache_dept($url, $dept_nid) {
   }
 
   if (!is_null($data)) {
+
     $decoded = drupal_json_decode($data);
+    $info = pathinfo($url);
+    $dept_nid = $info['filename'];
     file_save_data($data, ASU_ISEARCH_DIRECTORY_FEED_CACHE_ENDPOINT . $dept_nid, FILE_EXISTS_REPLACE);
   }
 
@@ -300,7 +303,7 @@ function asu_isearch_get_department($url, $deptnid) {
 
   //cache dept if it is not already
   if ($url != $from_cache) {
-    $decoded = _asu_isearch_cache_dept($url, $deptnid);
+    $decoded = _asu_isearch_cache_dept($url);
     return $decoded;
   }
 

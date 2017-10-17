@@ -59,10 +59,10 @@ function asu_isearch_strongarm() {
           'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '15',
+          'weight' => '13',
         ),
         'redirect' => array(
-          'weight' => '14',
+          'weight' => '12',
         ),
       ),
       'display' => array(),
@@ -145,13 +145,6 @@ function asu_isearch_strongarm() {
     ),
   );
   $export['panelizer_defaults_node_asu_isearch_profile'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'panelizer_node:asu_isearch_profile:default_selection';
-  $strongarm->value = 'node:asu_isearch_profile:default:default';
-  $export['panelizer_node:asu_isearch_profile:default_selection'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -713,41 +706,6 @@ function asu_isearch_strongarm() {
     'other' => 'other',
   );
   $export['panelizer_node:asu_isearch_profile_default'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_asu_isearch_profile_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_asu_isearch_profile_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_isearch_departments_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_isearch_departments_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_isearch_expertise_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_isearch_expertise_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_isearch_local_tags_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_isearch_local_tags_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_isearch_ranks_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_isearch_ranks_pattern'] = $strongarm;
 
   return $export;
 }
